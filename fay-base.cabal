@@ -11,8 +11,11 @@ copyright:           2012 Chris Done
 category:            Development
 build-type:          Simple
 cabal-version:       >=1.8
+data-files:          src/Prelude.hs src/FFI.hs
 
 library
   hs-source-dirs:    src
   exposed-modules:   Prelude
                     ,FFI
+  build-depends:    base,
+                    fay
