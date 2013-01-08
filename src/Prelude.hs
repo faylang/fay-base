@@ -13,7 +13,9 @@ module Prelude
   ,Base.Int
   ,Base.Integer
   ,Base.Bool(..)
+  ,Base.Show
   -- Standard data types
+  ,Maybe(..)
   ,maybe
   -- Monads
   ,(>>=)
@@ -26,13 +28,17 @@ module Prelude
   ,sequence
   ,sequence_
   -- Eq
+  ,Eq
   ,(==)
   ,(/=)
   -- Num
   ,(*)
   ,(+)
   ,(-)
+  -- Ratio
+  ,Rational
   -- Ord
+  ,Ord
   -- An ordering.
   ,(<)
   ,(>)
@@ -59,6 +65,7 @@ module Prelude
   -- Errors
   ,error
   ,undefined
+  ,Either(..)
   ,either
   -- Functions
   ,until
@@ -192,6 +199,7 @@ module Prelude
 
 import                  Language.Fay.Types (Fay)
 import                  Language.Fay.FFI
+import Data.Data
 import qualified "base" Prelude as Base
 import "base" Prelude (Bool(True,False)
                       ,(||),(&&),seq)
@@ -209,6 +217,9 @@ type Char = Base.Char
 
 -- | Maybe type.
 data Maybe a = Just a | Nothing
+instance Base.Show a => Base.Show (Maybe a)
+instance Typeable a => Typeable (Maybe a)
+instance Data a => Data (Maybe a)
 
 -- | Either type.
 data Either a b = Left a | Right b
@@ -216,6 +227,14 @@ data Either a b = Left a | Right b
 maybe :: t -> (t1 -> t) -> Maybe t1 -> t
 maybe m _ Nothing = m
 maybe _ f (Just x) = f x
+
+--------------------------------------------------------------------------------
+-- Rational
+
+data Rational = Ratio Int Int
+instance Base.Show Rational
+instance Data Rational
+instance Typeable Rational
 
 --------------------------------------------------------------------------------
 -- Monads
