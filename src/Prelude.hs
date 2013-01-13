@@ -13,7 +13,11 @@ module Prelude
   ,Base.Int
   ,Base.Integer
   ,Base.Bool(..)
+  ,Base.Read
   ,Base.Show
+  ,Base.Eq
+  ,(==)
+  ,(/=)
   -- Standard data types
   ,Maybe(..)
   ,maybe
@@ -27,10 +31,6 @@ module Prelude
   ,(=<<)
   ,sequence
   ,sequence_
-  -- Eq
-  ,Eq
-  ,(==)
-  ,(/=)
   -- Num
   ,(*)
   ,(+)
@@ -41,7 +41,9 @@ module Prelude
   ,Ord
   -- An ordering.
   ,(<)
+  ,(<=)
   ,(>)
+  ,(>=)
   ,compare
   -- Enum
   ,succ
@@ -58,6 +60,8 @@ module Prelude
   ,fromIntegral
   ,fromIntegral
   -- Bools
+  ,(&&)
+  ,(||)
   ,not
   ,otherwise
   -- Show
@@ -202,7 +206,7 @@ import                  Language.Fay.FFI
 import Data.Data
 import qualified "base" Prelude as Base
 import "base" Prelude (Bool(True,False)
-                      ,(||),(&&),seq)
+                      ,(||),(&&),seq,Eq,(==),(/=))
 
 --------------------------------------------------------------------------------
 -- Aliases of base
@@ -217,6 +221,7 @@ type Char = Base.Char
 
 -- | Maybe type.
 data Maybe a = Just a | Nothing
+instance Base.Read a => Base.Read (Maybe a)
 instance Base.Show a => Base.Show (Maybe a)
 instance Typeable a => Typeable (Maybe a)
 instance Data a => Data (Maybe a)
@@ -278,19 +283,6 @@ sequence_ []     = return ()
 sequence_ (m:ms) = m >> sequence_ ms
 
 --------------------------------------------------------------------------------
--- Eq
-
-class Base.Eq a => Eq a where
-  (==) :: a -> a -> Bool
-  (/=) :: a -> a -> Bool
-  infix 4 ==
-
-instance Eq Int
-instance Eq Double
-instance Eq Char
-instance Eq a => Eq [a]
-
---------------------------------------------------------------------------------
 -- Num
 
 class Base.Num a => Num a where
@@ -309,7 +301,9 @@ data Ordering = GT | LT | EQ
 
 class (Eq a,Base.Ord a) => Ord a where
   (<)     :: a -> a -> Bool
+  (<=)    :: a -> a -> Bool
   (>)     :: a -> a -> Bool
+  (>=)    :: a -> a -> Bool
 
 instance Ord Int
 instance Ord Double
