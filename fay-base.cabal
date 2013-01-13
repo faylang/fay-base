@@ -15,6 +15,7 @@ data-files:          src/Prelude.hs src/FFI.hs src/Data/Data.hs
 
 library
   hs-source-dirs:    src
+  exposed:           False
   exposed-modules:   Prelude
                     ,FFI
                     ,Data.Data
