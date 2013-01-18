@@ -19,4 +19,4 @@ library
   exposed-modules:   Prelude
                     ,FFI
                     ,Data.Data
-  build-depends: base, fay
+  build-depends: base, fay >= 0.12
