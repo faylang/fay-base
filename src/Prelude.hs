@@ -40,6 +40,7 @@ module Prelude
   ,Rational
   -- Ord
   ,Ord
+  ,Ordering(..)
   -- An ordering.
   ,(<)
   ,(<=)
