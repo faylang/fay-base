@@ -2,6 +2,7 @@ name:                fay-base
 version:             0.1.0.0
 synopsis:            The base package for Fay.
 description:         The base package for Fay.
+                     This package exports Prelude and FFI which you probably want to use with Fay.
 homepage:            https://github.com/faylang
 license:             BSD3
 license-file:        LICENSE
