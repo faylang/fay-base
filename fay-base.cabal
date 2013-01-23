@@ -3,11 +3,12 @@ version:             0.1.0.0
 synopsis:            The base package for Fay.
 description:         The base package for Fay.
                      This package exports Prelude and FFI which you probably want to use with Fay.
-homepage:            https://github.com/faylang
 license:             BSD3
 license-file:        LICENSE
 author:              Chris Done
 maintainer:          chrisdone@gmail.com
+homepage:            https://github.com/faylang/fay-base
+bug-reports:         https://github.com/faylang/fay-base/issues
 copyright:           2012 Chris Done
 category:            Development
 build-type:          Simple
