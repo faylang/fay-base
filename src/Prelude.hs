@@ -203,7 +203,7 @@ module Prelude
 #endif
   where
 
-import                  Language.Fay.Types (Fay)
+import                  Fay.Types (Fay)
 import                  Language.Fay.FFI
 import Data.Data
 import qualified "base" Prelude as Base
