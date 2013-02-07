@@ -467,10 +467,10 @@ divMod x y
   | x < 0 && y > 1 = case (x+1) `quotRem` y of (q,r) -> (q-1, r+y-1)
 divMod x y         = quotRem x y
 
-min :: (Num a, Foreign a) => a -> a -> a
+min :: (Num a) => a -> a -> a
 min = ffi "Math.min(%1,%2)"
 
-max :: (Num a, Foreign a) => a -> a -> a
+max :: (Num a) => a -> a -> a
 max = ffi "Math.max(%1,%2)"
 
 recip :: Double -> Double
@@ -869,11 +869,11 @@ prependToAll sep (x:xs) = sep : x : prependToAll sep xs
 intercalate :: [a] -> [[a]] -> [a]
 intercalate xs xss = concat (intersperse xs xss)
 
-maximum :: (Num a, Foreign a) => [a] -> a
+maximum :: (Num a) => [a] -> a
 maximum [] = error "maximum: empty list"
 maximum xs = foldl1 max xs
 
-minimum :: (Num a, Foreign a) => [a] -> a
+minimum :: (Num a) => [a] -> a
 minimum [] = error "minimum: empty list"
 minimum xs = foldl1 min xs
 
