@@ -426,7 +426,7 @@ show = ffi "JSON.stringify(%1)"
 error :: String -> a
 error = ffi "(function() { throw %1 })()"
 
--- | Throws “undefined” via "error".
+-- | Throws "undefined" via "error".
 undefined :: a
 undefined = error "Prelude.undefined"
 
