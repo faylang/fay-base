@@ -271,7 +271,7 @@ mapM_ _ []     = return ()
 
 (=<<) :: (a -> Fay b) -> Fay a -> Fay b
 f =<< x = x >>= f
-infixl 1 =<<
+infixr 1 =<<
 
 -- | Evaluate each action in the sequence from left to right,
 -- and collect the results.
