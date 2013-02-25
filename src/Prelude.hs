@@ -831,7 +831,8 @@ lines s    = case break isLineBreak s of (a, [])   -> [a]
   where isLineBreak c = c == '\r' || c == '\n'
 
 unlines :: [String] -> String
-unlines = intercalate "\n"
+unlines [] = []
+unlines (l:ls) = l ++ '\n' : unlines ls
 
 words :: String -> [String]
 words str = words' (dropWhile isSpace str)
