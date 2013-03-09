@@ -744,7 +744,7 @@ tail (_:t) = t
 
 init :: [a] -> [a]
 init []    = error "init: empty list"
-init [a]   = [a]
+init [a]   = []
 init (h:t) = h : init t
 
 last :: [a] -> a
