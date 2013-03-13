@@ -76,6 +76,7 @@ module Prelude
   -- Functions
   ,until
   ,($!)
+  ,seq
   ,const
   ,id
   ,(.)
