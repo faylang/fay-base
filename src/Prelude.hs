@@ -212,6 +212,35 @@ import "base" Prelude (Bool(True,False)
                       ,(||),(&&),seq,Eq,(==),(/=))
 
 --------------------------------------------------------------------------------
+-- Fixities
+
+infixr 9  .
+infixr 8  ^, ^^, **
+infixl 7  *, /, `quot`, `rem`, `div`, `mod`
+infixl 6  +, -
+
+-- The (:) operator is built-in syntax, and cannot legally be given
+-- a fixity declaration; but its fixity is given by:
+--   infixr 5  :
+
+-- Provided by base prelude
+--   infix  4  ==, /=
+--   infixr 3  &&
+--   infixr 2  ||
+--   infixr 0  $, $!
+
+infixr 4  <, <=, >=, >
+infixl 1  >>, >>=
+infixr 1  =<<
+infixr 0  $, $!
+
+-- PreludeList
+
+infixl 9  !!
+infixr 5  ++
+infix  4  `elem`, `notElem`
+
+--------------------------------------------------------------------------------
 -- Aliases of base
 
 type String = Base.String
@@ -272,7 +301,6 @@ mapM_ _ []     = return ()
 
 (=<<) :: (a -> Fay b) -> Fay a -> Fay b
 f =<< x = x >>= f
-infixr 1 =<<
 
 -- | Evaluate each action in the sequence from left to right,
 -- and collect the results.
@@ -414,7 +442,6 @@ until p f x = if p x then x else until p f (f x)
 
 ($!) :: (a -> b) -> a -> b
 f $! x = x `seq` f x
-infixr 0 $!
 
 const :: a -> b -> a
 const a _ = a
@@ -424,11 +451,9 @@ id x = x
 
 (.) :: (t1 -> t) -> (t2 -> t1) -> t2 -> t
 (f . g) x = f (g x)
-infixr 9 .
 
 ($) :: (t1 -> t) -> t1 -> t
 f $ x = f x
-infixr 0 $
 
 flip :: (t1 -> t2 -> t) -> t2 -> t1 -> t
 flip f x y = f y x
@@ -453,14 +478,12 @@ div x y
   | x > 0 && y < 0 = quot (x-1) y - 1
   | x < 0 && y > 0 = quot (x+1) y - 1
 div x y            = quot x y
-infixl 7 `div`
 
 mod :: Int -> Int -> Int
 mod x y
   | x > 0 && y < 0 = rem (x-1) y + y + 1
   | x < 0 && y > 0 = rem (x+1) y + y - 1
 mod x y            = rem x y
-infixl 7 `mod`
 
 divMod :: Int -> Int -> (Int, Int)
 divMod x y
@@ -508,12 +531,10 @@ log = ffi "Math.log(%1)"
 -- | Uses Math.pow.
 (**) :: Double -> Double -> Double
 (**) = unsafePow
-infixr 8 **
 
 -- | Uses Math.pow.
 (^^) :: Double -> Int -> Double
 (^^) = unsafePow
-infixr 8 ^^
 
 -- | Uses Math.pow.
 unsafePow :: (Num a,Num b) => a -> b -> a
@@ -525,7 +546,6 @@ a ^ b | b < 0  = error "(^): negative exponent"
       | b == 0 = 1
       | even b = let x = a ^ (b `quot` 2) in x * x
 a ^ b          = a * a ^ (b - 1)
-infixr 8 ^
 
 -- | Implemented in Fay, not fast.
 logBase :: Double -> Double -> Double
@@ -620,7 +640,6 @@ gcd a b = go (abs a) (abs b)
 -- | Uses quot'.
 quot :: Int -> Int -> Int
 quot x y = if y == 0 then error "Division by zero" else quot' x y
-infixl 7 `quot`
 
 -- | Uses ~~(a/b).
 quot' :: Int -> Int -> Int
@@ -633,7 +652,6 @@ quotRem x y = (quot x y, rem x y)
 -- | Uses rem'.
 rem :: Int -> Int -> Int
 rem x y = if y == 0 then error "Division by zero" else rem' x y
-infixl 7 `rem`
 
 -- | Uses %%.
 rem' :: Int -> Int -> Int
@@ -726,14 +744,12 @@ foldl1 _ []     = error "foldl1: empty list"
 
 (++) :: [a] -> [a] -> [a]
 x ++ y = conc x y
-infixr 5 ++
 
 (!!) :: [a] -> Int -> a
 a !! b = if b < 0 then error "(!!): negative index" else go a b
   where go []    _ = error "(!!): index too large"
         go (h:_) 0 = h
         go (_:t) n = go t (n-1)
-infixl 9 !!
 
 head :: [a] -> a
 head []    = error "head: empty list"
