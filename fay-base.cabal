@@ -1,5 +1,5 @@
 name:                fay-base
-version:             0.14.2.0
+version:             0.14.4.0
 synopsis:            The base package for Fay.
 description:         The base package for Fay.
                      This package exports Prelude and FFI which you probably want to use with Fay.
