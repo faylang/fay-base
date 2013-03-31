@@ -200,6 +200,7 @@ module Prelude
   -- IO
   ,print
   ,putStrLn
+  ,Fay
   )
 #endif
   where
@@ -492,10 +493,10 @@ divMod x y
 divMod x y         = quotRem x y
 
 min :: (Num a) => a -> a -> a
-min = ffi "Math.min(%1,%2)"
+min = ffi "Math.min(Fay$$_(%1),Fay$$_(%2))"
 
 max :: (Num a) => a -> a -> a
-max = ffi "Math.max(%1,%2)"
+max = ffi "Math.max(Fay$$_(%1),Fay$$_(%2))"
 
 recip :: Double -> Double
 recip x = 1 / x
@@ -538,7 +539,7 @@ log = ffi "Math.log(%1)"
 
 -- | Uses Math.pow.
 unsafePow :: (Num a,Num b) => a -> b -> a
-unsafePow = ffi "Math.pow(%1,%2)"
+unsafePow = ffi "Math.pow(Fay$$_(%1),Fay$$_(%2))"
 
 -- | Implemented in Fay, it's not fast.
 (^) :: Num a => a -> Int -> a
