@@ -6,7 +6,7 @@ description:         The base package for Fay.
 license:             BSD3
 license-file:        LICENSE
 author:              Chris Done
-maintainer:          Adam Bergmark
+maintainer:          adam@edea.se
 homepage:            https://github.com/faylang/fay-base
 bug-reports:         https://github.com/faylang/fay-base/issues
 copyright:           2012 Chris Done
