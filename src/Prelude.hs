@@ -901,7 +901,6 @@ product [] = error "product: empty list"
 product xs = foldl (*) 1 xs
 
 sum :: Num a => [a] -> a
-sum [] = error "sum: empty list"
 sum xs = foldl (+) 0 xs
 
 scanl :: (a -> b -> a) -> a -> [b] -> [a]
