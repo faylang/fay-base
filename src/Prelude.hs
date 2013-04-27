@@ -778,7 +778,7 @@ repeat x = x : repeat x
 
 replicate :: Int -> a -> [a]
 replicate 0 _ = []
-replicate n x = if n < 0 then error "replicate: negative length"
+replicate n x = if n < 0 then []
                          else x : replicate (n-1) x
 
 cycle :: [a] -> [a]
@@ -788,19 +788,19 @@ cycle xs = xs' where xs' = xs ++ xs'
 take :: Int -> [a] -> [a]
 take 0 _  = []
 take _ [] = []
-take n (x:xs) = if n < 0 then error "take: negative length"
+take n (x:xs) = if n < 0 then []
                          else x : take (n-1) xs
 
 drop :: Int -> [a] -> [a]
 drop 0 xs = xs
 drop _ [] = []
-drop n (_:xs) = if n < 0 then error "drop: negative length"
-                         else drop (n-1) xs
+drop n xss@(x:xs) = if n < 0 then xss
+                             else drop (n-1) xs
 
 splitAt :: Int -> [a] -> ([a], [a])
 splitAt 0 xs     = ([], xs)
 splitAt _ []     = ([], [])
-splitAt n (x:xs) = if n < 0 then error "splitAt: negative length"
+splitAt n (x:xs) = if n < 0 then ([],x:xs)
                             else case splitAt (n-1) xs of (a,b) -> (x:a, b)
 
 takeWhile :: (a -> Bool) -> [a] -> [a]
@@ -897,7 +897,6 @@ minimum [] = error "minimum: empty list"
 minimum xs = foldl1 min xs
 
 product :: Num a => [a] -> a
-product [] = error "product: empty list"
 product xs = foldl (*) 1 xs
 
 sum :: Num a => [a] -> a
