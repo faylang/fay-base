@@ -2,6 +2,9 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE PackageImports       #-}
 {-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+
 {-# OPTIONS -w #-}
 
 module Prelude
@@ -271,11 +274,18 @@ instance Data a => Data (Maybe a)
 -- | Either type.
 #ifdef FAY
 data Either a b = Left a | Right b
+  deriving (Base.Read, Base.Show, Data, Typeable, Eq)
 #endif
 
 maybe :: t -> (t1 -> t) -> Maybe t1 -> t
 maybe m _ Nothing = m
 maybe _ f (Just x) = f x
+
+--------------------------------------------------------------------------------
+-- Rational
+
+data Rational = Ratio Int Int
+  deriving (Base.Read, Base.Show, Data, Typeable, Eq)
 
 --------------------------------------------------------------------------------
 -- Monads
@@ -355,6 +365,7 @@ instance Num Double
 -- An ordering.
 #ifdef FAY
 data Ordering = GT | LT | EQ
+  deriving (Base.Read, Base.Show, Data, Typeable, Eq)
 #endif
 
 class (Eq a) => Ord a where
