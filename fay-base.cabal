@@ -13,7 +13,11 @@ copyright:           2012 Chris Done
 category:            Development
 build-type:          Simple
 cabal-version:       >=1.8
-data-files:          src/Prelude.hs src/FFI.hs src/Data/Data.hs, src/Data/Ratio.hs
+data-files:
+  src/Prelude.hs
+  src/FFI.hs
+  src/Data/Data.hs
+  src/Data/Ratio.hs
 
 source-repository head
   type: git

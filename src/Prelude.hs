@@ -204,7 +204,7 @@ module Prelude
   where
 
 import                  Fay.Types (Fay)
-import                  Language.Fay.FFI
+import                  Fay.FFI
 import Data.Data
 import qualified "base" Prelude as Base
 import "base" Prelude (Bool(True,False)
