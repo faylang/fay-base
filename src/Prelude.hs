@@ -198,6 +198,7 @@ module Prelude
   -- IO
   ,print
   ,putStrLn
+  ,ifThenElse
   ,Fay
   )
 #endif
@@ -937,3 +938,10 @@ print = ffi "(function(x) { if (console && console.log) console.log(x) })(%1)"
 
 putStrLn :: String -> Fay ()
 putStrLn = ffi "(function(x) { if (console && console.log) console.log(x) })(%1)"
+
+--------------------------------------------------------------------------------
+-- Additions
+
+-- | Default definition for using RebindableSyntax.
+ifThenElse :: Bool -> t -> t -> t
+ifThenElse p a b = if p then a else b
