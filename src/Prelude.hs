@@ -5,7 +5,6 @@
 {-# OPTIONS -w #-}
 
 module Prelude
-#ifndef FAY
   (
   -- Prelude type re-exports
    Base.Char
@@ -201,7 +200,6 @@ module Prelude
   ,ifThenElse
   ,Fay
   )
-#endif
   where
 
 import                  Fay.Types (Fay)
@@ -269,12 +267,12 @@ maybe _ f (Just x) = f x
 -- Monads
 
 -- | Monomorphic bind for Fay.
-(>>=) :: Fay a -> (a -> Fay b) -> Fay b
-(>>=) = ffi "Fay$$bind(%1)(%2)"
+(>>=) :: Ptr (Fay a) -> Ptr (a -> Fay b) -> Ptr (Fay b)
+(>>=) = ffi "Fay$$_(Fay$$bind(%1)(%2))"
 
 -- | Monomorphic then for Fay.
-(>>) :: Fay a -> Fay b -> Fay b
-(>>) = ffi "Fay$$then(%1)(%2)"
+(>>) :: Ptr (Fay a) -> Ptr (Fay b) -> Ptr (Fay b)
+(>>) = ffi "Fay$$_(Fay$$then(%1)(%2))"
 
 -- | Monomorphic return for Fay.
 return :: a -> Fay a
