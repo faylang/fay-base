@@ -25,6 +25,7 @@ module Prelude
   ,(>>=)
   ,(>>)
   ,return
+  ,fail
   ,when
   ,forM_
   ,mapM_
@@ -277,6 +278,9 @@ maybe _ f (Just x) = f x
 -- | Monomorphic return for Fay.
 return :: a -> Fay a
 return = ffi "Fay$$return(%1)"
+
+fail :: String -> Fay a
+fail = error
 
 when :: Bool -> Fay a -> Fay ()
 when p m = if p then m >> return () else return ()
