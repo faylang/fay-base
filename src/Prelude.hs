@@ -1,7 +1,7 @@
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE CPP #-}
+{-# LANGUAGE CPP                  #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE PackageImports       #-}
 {-# LANGUAGE TypeSynonymInstances #-}
-{-# LANGUAGE FlexibleInstances #-}
 {-# OPTIONS -w #-}
 
 module Prelude
@@ -58,7 +58,7 @@ module Prelude
   ,(/)
   -- Integral
   ,fromIntegral
-  ,fromIntegral
+  ,fromInteger
   -- Bools
   ,(&&)
   ,(||)
@@ -203,12 +203,12 @@ module Prelude
   )
   where
 
-import                  Fay.Types (Fay)
-import                  Fay.FFI
-import Data.Data
-import qualified "base" Prelude as Base
-import "base" Prelude (Bool(True,False)
-                      ,(||),(&&),seq,Eq,(==),(/=))
+import           Data.Data
+import           Fay.FFI
+import           Fay.Types (Fay)
+import           "base" Prelude   (Bool (True, False), Eq, seq, (&&), (/=),
+                                   (==), (||))
+import qualified "base" Prelude   as Base
 
 --------------------------------------------------------------------------------
 -- Fixities
