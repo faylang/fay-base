@@ -391,10 +391,10 @@ class (Enum a,Base.Integral a) => Integral a
 
 instance Integral Int
 
-fromIntegral :: Int -> Double
+fromIntegral :: (Num a, Num b) => Ptr a -> Ptr b
 fromIntegral = ffi "%1"
 
-fromInteger :: Int -> Double
+fromInteger :: Num a => Ptr Base.Integer -> Ptr a
 fromInteger = ffi "%1"
 
 --------------------------------------------------------------------------------
