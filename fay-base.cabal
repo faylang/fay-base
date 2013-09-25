@@ -10,7 +10,7 @@ maintainer:          adam@edea.se
 homepage:            https://github.com/faylang/fay-base
 bug-reports:         https://github.com/faylang/fay-base/issues
 copyright:           2012 Chris Done
-category:            Development
+category:            Development, Fay
 build-type:          Simple
 cabal-version:       >=1.8
 data-files:
