@@ -9,8 +9,9 @@
 
 module Prelude
   (
+   Base.Monad
   -- Prelude type re-exports
-   Base.Char
+  ,Base.Char
   ,Base.String
   ,Base.Double
   ,Base.Int
@@ -439,7 +440,8 @@ class (Enum a,Base.Integral a) => Integral a
 instance Integral Int
 -- Can't add Integer instance since Integer isn't an Enum (see Enum above).
 
-fromIntegral :: (Num a, Num b) => Ptr a -> Ptr b
+
+fromIntegral :: Int -> Double
 fromIntegral = ffi "%1"
 
 fromInteger :: Num a => Ptr Integer -> Ptr a
