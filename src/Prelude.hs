@@ -56,6 +56,7 @@ module Prelude
   ,enumFromThenTo
   -- Fractional
   ,(/)
+  , fromRational
   -- Integral
   ,fromIntegral
   ,fromInteger
@@ -384,6 +385,8 @@ class (Num a,Base.Fractional a) => Fractional a where
 
 instance Fractional Double
 
+fromRational :: Fractional a => Base.Rational -> a
+fromRational = ffi "%1"
 --------------------------------------------------------------------------------
 -- Integral
 
