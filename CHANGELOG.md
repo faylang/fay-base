@@ -6,5 +6,13 @@
 * Add `fail`
 * Generalize type signatures for `fromIntegral` and `fromInteger`
 
+
 ### 0.17.0.0 (2013-08-27)
+
 * The type signature of `FFI.ffi` has been generalized to `IsString s => s -> a` to support `RebindableSyntax`.
+* Prelude now exports `ifThenElse` as a default for `RebindableSyntax`
+
+
+### 0.16.0.0 (2013-08-05)
+
+* Added more Ratio functions and move them all into Data.Ratio
