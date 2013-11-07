@@ -30,4 +30,4 @@ library
                     ,FFI
                     ,Data.Data
                     ,Data.Ratio
-  build-depends: base == 4.*, fay >= 0.18
+  build-depends: base == 4.*, fay >= 0.18 && < 0.19
