@@ -333,6 +333,7 @@ class (Eq a,Base.Ord a) => Ord a where
 instance Ord Int
 instance Ord Double
 instance Ord Char
+instance Ord Base.Integer
 
 compare :: Ord a => a -> a -> Ordering
 compare x y =
