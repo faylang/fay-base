@@ -242,10 +242,11 @@ infix  4  `elem`, `notElem`
 --------------------------------------------------------------------------------
 -- Aliases of base
 
-type String = Base.String
-type Int    = Base.Int
-type Double = Base.Double
-type Char = Base.Char
+type Char    = Base.Char
+type Double  = Base.Double
+type Int     = Base.Int
+type Integer = Base.Integer
+type String  = Base.String
 
 --------------------------------------------------------------------------------
 -- Standard data types
@@ -330,10 +331,10 @@ class (Eq a,Base.Ord a) => Ord a where
   (>)     :: a -> a -> Bool
   (>=)    :: a -> a -> Bool
 
-instance Ord Int
-instance Ord Double
 instance Ord Char
-instance Ord Base.Integer
+instance Ord Double
+instance Ord Int
+instance Ord Integer
 
 compare :: Ord a => a -> a -> Ordering
 compare x y =
@@ -349,6 +350,8 @@ compare x y =
 class (Base.Enum a) => Enum a where
 
 instance Enum Int
+-- Integers are represented as JS numbers which aren't arbitrary precision
+-- se we shouldn't add an Enum instance.
 
 succ :: Num a => a -> a
 succ x = x + 1
@@ -391,11 +394,12 @@ instance Fractional Double
 class (Enum a,Base.Integral a) => Integral a
 
 instance Integral Int
+-- Can't add Integer instance since Integer isn't an Enum (see Enum above).
 
 fromIntegral :: (Num a, Num b) => Ptr a -> Ptr b
 fromIntegral = ffi "%1"
 
-fromInteger :: Num a => Ptr Base.Integer -> Ptr a
+fromInteger :: Num a => Ptr Integer -> Ptr a
 fromInteger = ffi "%1"
 
 --------------------------------------------------------------------------------
