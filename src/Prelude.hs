@@ -19,7 +19,11 @@ module Prelude
   ,(==)
   ,(/=)
   -- Standard data types
+#ifdef FAY
   ,Maybe(..)
+#else
+  ,Base.Maybe(..)
+#endif
   ,maybe
   -- Monads
   ,(>>=)
@@ -38,7 +42,11 @@ module Prelude
   ,(-)
   -- Ord
   ,Ord
+#ifdef FAY
   ,Ordering(..)
+#else
+  ,Base.Ordering(..)
+#endif
   -- An ordering.
   ,(<)
   ,(<=)
@@ -69,7 +77,11 @@ module Prelude
   -- Errors
   ,error
   ,undefined
+#ifdef FAY
   ,Either(..)
+#else
+  ,Base.Either(..)
+#endif
   ,either
   -- Functions
   ,until
