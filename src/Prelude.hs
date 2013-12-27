@@ -36,6 +36,9 @@ module Prelude
   ,(=<<)
   ,sequence
   ,sequence_
+  ,void
+  ,(>=>)
+  ,(<=<)
   -- Num
   ,(*)
   ,(+)
@@ -242,7 +245,7 @@ infixl 6  +, -
 
 infixr 4  <, <=, >=, >
 infixl 1  >>, >>=
-infixr 1  =<<
+infixr 1  =<<, >=>, <=<
 infixr 0  $, $!
 
 -- PreludeList
@@ -308,6 +311,15 @@ mapM_ _ []     = return ()
 
 (=<<) :: (a -> Fay b) -> Fay a -> Fay b
 f =<< x = x >>= f
+
+void :: Fay a -> Fay ()
+void f = f >> return ()
+
+(>=>) :: (a -> Fay b) -> (b -> Fay c) -> a -> Fay c
+(>=>) f g x = f x >>= g
+
+(<=<) :: (b -> Fay c) -> (a -> Fay b) -> a -> Fay c
+(<=<) g f x = f x >>= g
 
 -- | Evaluate each action in the sequence from left to right,
 -- and collect the results.
