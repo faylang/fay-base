@@ -22,6 +22,7 @@ data-files:
   src/FFI.hs
   src/Data/Data.hs
   src/Data/Ratio.hs
+  src/Debug/Trace.hs
 
 source-repository head
   type: git
@@ -34,4 +35,5 @@ library
                     ,FFI
                     ,Data.Data
                     ,Data.Ratio
+                    ,Debug.Trace
   build-depends: base == 4.*, fay >= 0.18 && < 0.19
