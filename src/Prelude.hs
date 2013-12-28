@@ -19,11 +19,7 @@ module Prelude
   ,(==)
   ,(/=)
   -- Standard data types
-#ifdef FAY
   ,Maybe(..)
-#else
-  ,Base.Maybe(..)
-#endif
   ,maybe
   -- Monads
   ,(>>=)
@@ -45,11 +41,7 @@ module Prelude
   ,(-)
   -- Ord
   ,Ord
-#ifdef FAY
   ,Ordering(..)
-#else
-  ,Base.Ordering(..)
-#endif
   -- An ordering.
   ,(<)
   ,(<=)
@@ -80,11 +72,7 @@ module Prelude
   -- Errors
   ,error
   ,undefined
-#ifdef FAY
   ,Either(..)
-#else
-  ,Base.Either(..)
-#endif
   ,either
   -- Functions
   ,until
@@ -224,6 +212,9 @@ import           Fay.Types (Fay)
 import           "base" Prelude   (Bool (True, False), Eq, seq, (&&), (/=),
                                    (==), (||))
 import qualified "base" Prelude   as Base
+#ifndef FAY
+import "base" Prelude (Either (..), Maybe (..), Ordering (..))
+#endif
 
 --------------------------------------------------------------------------------
 -- Fixities
@@ -267,14 +258,18 @@ type String  = Base.String
 -- Standard data types
 
 -- | Maybe type.
+#ifdef FAY
 data Maybe a = Just a | Nothing
 instance Base.Read a => Base.Read (Maybe a)
 instance Base.Show a => Base.Show (Maybe a)
 instance Typeable a => Typeable (Maybe a)
 instance Data a => Data (Maybe a)
+#endif
 
 -- | Either type.
+#ifdef FAY
 data Either a b = Left a | Right b
+#endif
 
 maybe :: t -> (t1 -> t) -> Maybe t1 -> t
 maybe m _ Nothing = m
@@ -347,13 +342,15 @@ instance Num Double
 -- Ord
 
 -- An ordering.
+#ifdef FAY
 data Ordering = GT | LT | EQ
+#endif
 
 class (Eq a,Base.Ord a) => Ord a where
-  (<)     :: a -> a -> Bool
-  (<=)    :: a -> a -> Bool
-  (>)     :: a -> a -> Bool
-  (>=)    :: a -> a -> Bool
+  (<)  :: a -> a -> Bool
+  (<=) :: a -> a -> Bool
+  (>)  :: a -> a -> Bool
+  (>=) :: a -> a -> Bool
 
 instance Ord Char
 instance Ord Double
