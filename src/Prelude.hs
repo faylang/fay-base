@@ -27,7 +27,10 @@ module Prelude
   ,return
   ,fail
   ,when
+  ,unless
+  ,forM
   ,forM_
+  ,mapM
   ,mapM_
   ,(=<<)
   ,sequence
@@ -296,9 +299,18 @@ fail = error
 when :: Bool -> Fay a -> Fay ()
 when p m = if p then m >> return () else return ()
 
-forM_ :: [t] -> (t -> Fay a) -> Fay ()
+unless :: Bool -> Fay a -> Fay ()
+unless p m = if p then return () else m >> return ()
+
+forM :: [a] -> (a -> Fay b) -> Fay [b]
+forM lst fn = sequence $ map fn lst
+
+forM_ :: [a] -> (a -> Fay b) -> Fay ()
 forM_ (x:xs) m = m x >> forM_ xs m
 forM_ []     _ = return ()
+
+mapM :: (a -> Fay b) -> [a] -> Fay [b]
+mapM fn lst = sequence $ map fn lst
 
 mapM_ :: (a -> Fay b) -> [a] -> Fay ()
 mapM_ m (x:xs) = m x >> mapM_ m xs
