@@ -1,8 +1,8 @@
 name:                fay-base
-version:             0.18.0.0
+version:             0.19
 synopsis:            The base package for Fay.
 description:         The base package for Fay.
-                     This package exports Prelude and FFI which you probably want to use with Fay.
+                     This package amongst others exports Prelude and FFI which you probably want to use with Fay.
 license:             BSD3
 license-file:        LICENSE
 author:              Chris Done
@@ -36,4 +36,4 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
-  build-depends: base == 4.*, fay >= 0.18 && < 0.19
+  build-depends: base == 4.*, fay >= 0.19 && < 0.20
