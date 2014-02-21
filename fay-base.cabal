@@ -26,7 +26,7 @@ data-files:
 
 source-repository head
   type: git
-  location: https://github.com/faylang/fay.git
+  location: https://github.com/faylang/fay-base.git
 
 library
   hs-source-dirs:    src
