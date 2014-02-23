@@ -21,6 +21,7 @@ data-files:
   src/Prelude.hs
   src/FFI.hs
   src/Data/Data.hs
+  src/Data/Char.hs
   src/Data/Ratio.hs
   src/Debug/Trace.hs
 
@@ -33,6 +34,7 @@ library
   exposed:           False
   exposed-modules:   Prelude
                     ,FFI
+                    ,Data.Char
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
