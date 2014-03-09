@@ -1,8 +1,16 @@
-module Data.Char (
-    chr, ord, isAscii, isLatin1,
-    toUpper, toLower, isAsciiLower,
-    isAsciiUpper, isDigit, isOctDigit,
-    isHexDigit, isSpace
+module Data.Char
+  (chr
+  ,ord
+  ,isAscii
+  ,isLatin1
+  ,toUpper
+  ,toLower
+  ,isAsciiLower
+  ,isAsciiUpper
+  ,isDigit
+  ,isOctDigit
+  ,isHexDigit
+  ,isSpace
   ) where
 
 import Fay.FFI
@@ -19,10 +27,10 @@ isAscii c = c < '\x80'
 isLatin1 :: Char -> Bool
 isLatin1 c = c <= '\xff'
 
-toUpper :: Char -> Char 
+toUpper :: Char -> Char
 toUpper = ffi "%1.toUpperCase()"
 
-toLower :: Char -> Char 
+toLower :: Char -> Char
 toLower = ffi "%1.toLowerCase()"
 
 isAsciiLower :: Char -> Bool
