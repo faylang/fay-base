@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.19.1 (2014-03-13)
+
+* Add Data.Char
+
 ## 0.19 (2014-01-14)
 
 * Ord instance for Integer
