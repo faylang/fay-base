@@ -1,5 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE PackageImports #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DeriveDataTypeable #-}
 {-# OPTIONS -w #-}
 
 module Data.Ratio where
@@ -12,9 +14,15 @@ import qualified "base" Prelude as Base
 -- Rational
 
 data Rational = Ratio Int Int
+#ifndef FAY
+    deriving Typeable
+#endif
+
 instance Base.Show Rational
 instance Data Rational
+#ifdef FAY
 instance Typeable Rational
+#endif
 
 (%) :: Int -> Int -> Rational
 x % y = reduce (x * signum y) (abs y)
