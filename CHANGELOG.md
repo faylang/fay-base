@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 0.19.1.1 (2014-04-07)
+
+* Fix compilation on GHC 7.8
+
 ### 0.19.1 (2014-03-13)
 
 * Add Data.Char
