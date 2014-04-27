@@ -211,12 +211,11 @@ module Prelude
 
 import           Data.Data
 import           Fay.FFI
-import           Fay.Types (Fay)
 import           "base" Prelude   (Bool (True, False), Eq, seq, (&&), (/=),
                                    (==), (||))
 import qualified "base" Prelude   as Base
 #ifndef FAY
-import "base" Prelude (Either (..), Maybe (..), Ordering (..))
+import           "base" Prelude   (Either (..), Maybe (..), Ordering (..))
 #endif
 
 --------------------------------------------------------------------------------
