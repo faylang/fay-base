@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 0.19.1.2 (2014-04-29)
+
+* Allow `fay 0.20`
+
 #### 0.19.1.1 (2014-04-07)
 
 * Fix compilation on GHC 7.8
