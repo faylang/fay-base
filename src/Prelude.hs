@@ -357,7 +357,7 @@ instance Num Double
 data Ordering = GT | LT | EQ
 #endif
 
-class (Eq a,Base.Ord a) => Ord a where
+class (Eq a) => Ord a where
   (<)  :: a -> a -> Bool
   (<=) :: a -> a -> Bool
   (>)  :: a -> a -> Bool
