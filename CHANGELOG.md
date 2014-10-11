@@ -1,6 +1,10 @@
 ## Changelog
 
-#### 0.19.2 (2014-07-29)
+#### 0.19.2.1 (2014-10-11)
+
+* Allow `fay 0.21`
+
+### 0.19.2 (2014-07-29)
 
 * Remove the `Base.Ord` constraint from `Ord` so new Ord instances can be added. Note that you cannot use a custom implementation of the methods, JavaScript's native operators are used for comparisons.
 
