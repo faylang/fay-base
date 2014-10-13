@@ -35,10 +35,12 @@ library
   exposed-modules:   Prelude
                     ,Data.Char
                     ,Data.Data
+                    ,Data.Defined
                     ,Data.Either
                     ,Data.Function
                     ,Data.List
                     ,Data.Maybe
+                    ,Data.Nullable
                     ,Data.Ord
                     ,Data.Ratio
                     ,Data.Text
