@@ -38,6 +38,11 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
+                    ,Data.Either
+                    ,Data.Function
+                    ,Data.List
+                    ,Data.Maybe
+                    ,Data.Ord
                     ,Data.Text
                     ,Data.Time
                     ,Fay.Unsafe
