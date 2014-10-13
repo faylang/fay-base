@@ -38,4 +38,6 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
+                    ,Fay.Unsafe
+                    ,Unsafe.Coerce
   build-depends: base == 4.*, fay >= 0.19.1 && < 0.21
