@@ -38,10 +38,12 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
+                    ,Data.Defined
                     ,Data.Either
                     ,Data.Function
                     ,Data.List
                     ,Data.Maybe
+                    ,Data.Nullable
                     ,Data.Ord
                     ,Data.Text
                     ,Data.Time
