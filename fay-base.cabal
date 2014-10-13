@@ -43,6 +43,7 @@ library
                     ,Data.Either
                     ,Data.Function
                     ,Data.List
+                    ,Data.LocalStorage
                     ,Data.Maybe
                     ,Data.Mutex
                     ,Data.Nullable
