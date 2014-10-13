@@ -43,6 +43,7 @@ library
                     ,Data.Function
                     ,Data.List
                     ,Data.Maybe
+                    ,Data.Mutex
                     ,Data.Nullable
                     ,Data.Ord
                     ,Data.Text
