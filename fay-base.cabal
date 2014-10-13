@@ -45,6 +45,8 @@ library
                     ,Data.List
                     ,Data.LocalStorage
                     ,Data.Maybe
+                    ,Data.MutMap
+                    ,Data.MutMap.Internal
                     ,Data.Mutex
                     ,Data.Nullable
                     ,Data.Ord
