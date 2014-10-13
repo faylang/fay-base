@@ -37,6 +37,7 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Data.Text
+                    ,Data.Time
                     ,Debug.Trace
                     ,FFI
                     ,Fay.Unsafe
