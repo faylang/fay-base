@@ -39,6 +39,7 @@ library
                     ,Data.Ratio
                     ,Debug.Trace
                     ,Data.Text
+                    ,Data.Time
                     ,Fay.Unsafe
                     ,Unsafe.Coerce
   build-depends: base == 4.*, fay >= 0.19.1 && < 0.21
