@@ -33,9 +33,11 @@ library
   hs-source-dirs:    src
   exposed:           False
   exposed-modules:   Prelude
-                    ,FFI
                     ,Data.Char
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
+                    ,FFI
+                    ,Fay.Unsafe
+                    ,Unsafe.Coerce
   build-depends: base == 4.*, fay >= 0.19.1 && < 0.22
