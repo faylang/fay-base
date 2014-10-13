@@ -38,6 +38,7 @@ library
                     ,Data.Data
                     ,Data.Ratio
                     ,Debug.Trace
+                    ,Control.Exception
                     ,Data.Defined
                     ,Data.Either
                     ,Data.Function
