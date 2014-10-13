@@ -50,6 +50,7 @@ library
                     ,Data.Ratio
                     ,Data.Text
                     ,Data.Time
+                    ,Data.Var
                     ,Debug.Trace
                     ,FFI
                     ,Fay.Unsafe
