@@ -36,6 +36,7 @@ library
                     ,Data.Char
                     ,Data.Data
                     ,Data.Ratio
+                    ,Data.Text
                     ,Debug.Trace
                     ,FFI
                     ,Fay.Unsafe
