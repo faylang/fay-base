@@ -33,6 +33,7 @@ library
   hs-source-dirs:    src
   exposed:           False
   exposed-modules:   Prelude
+                    ,Control.Exception
                     ,Data.Char
                     ,Data.Data
                     ,Data.Defined
