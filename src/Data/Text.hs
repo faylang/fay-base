@@ -200,22 +200,22 @@ uncons = ffi "%1[0] ? { instance: 'Just', slot1 : [%1[0],%1.slice(1)] } : { inst
 -- | O(1) Returns the first character of a Text, which must be
 -- non-empty. Subject to fusion.
 head :: Text -> Char
-head = ffi "%1[0] || (function () {throw new Error('Fay.Text.head: empty Text'); }())"
+head = ffi "%1[0] || (function () {throw new Error('Data.Text.head: empty Text'); }())"
 
 -- | O(1) Returns the last character of a Text, which must be
 -- non-empty. Subject to fusion.
 last :: Text -> Char
-last = ffi "%1.length ? %1[%1.length-1] : (function() { throw new Error('Fay.Text.last: empty Text') })()"
+last = ffi "%1.length ? %1[%1.length-1] : (function() { throw new Error('Data.Text.last: empty Text') })()"
 
 -- | O(1) Returns all characters after the head of a Text, which must
 -- be non-empty. Subject to fusion.
 tail :: Text -> Text
-tail = ffi "%1.length ? %1.slice(1) : (function () { throw new Error('Fay.Text.tail: empty Text') })()"
+tail = ffi "%1.length ? %1.slice(1) : (function () { throw new Error('Data.Text.tail: empty Text') })()"
 
 -- | O(1) Returns all but the last character of a Text, which must be
 -- non-empty. Subject to fusion.
 init :: Text -> Text
-init = ffi "%1.length ? %1.slice(0,-1) : (function () { throw new Error('Fay.Text.init: empty Text') })()"
+init = ffi "%1.length ? %1.slice(0,-1) : (function () { throw new Error('Data.Text.init: empty Text') })()"
 
 -- | O(n) map f t is the Text obtained by applying f to each element
 -- of t. Subject to fusion. Performs replacement on invalid scalar
@@ -261,7 +261,7 @@ all = ffi "[].filter.call(%2, %1).length == %1.length"
 -- non-empty. Subject to fusion.
 maximum :: Text -> Char
 maximum = ffi "(function (s) { \
-  \   if (s === '') { throw new Error('Fay.Text.maximum: empty string'); } \
+  \   if (s === '') { throw new Error('Data.Text.maximum: empty string'); } \
   \   var max = s[0]; \
   \   for (var i = 1; i < s.length; s++) { \
   \     if (s[i] > max) { max = s[i]; } \
@@ -273,7 +273,7 @@ maximum = ffi "(function (s) { \
 -- non-empty. Subject to fusion.
 minimum :: Text -> Char
 minimum = ffi "(function (s) { \
-  \   if (s === '') { throw new Error('Fay.Text.maximum: empty string'); } \
+  \   if (s === '') { throw new Error('Data.Text.maximum: empty string'); } \
   \   var min = s[0]; \
   \   for (var i = 1; i < s.length; s++) { \
   \     if (s[i] < min) { min = s[i]; } \
