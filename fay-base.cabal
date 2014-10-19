@@ -18,12 +18,13 @@ extra-source-files:
   README.md
   CHANGELOG.md
 data-files:
-  src/Prelude.hs
-  src/FFI.hs
-  src/Data/Data.hs
-  src/Data/Char.hs
-  src/Data/Ratio.hs
-  src/Debug/Trace.hs
+  src/*.hs
+  src/Control/*.hs
+  src/Data/*.hs
+  src/Data/MutMap/*.hs
+  src/Debug/*.hs
+  src/Fay/*.hs
+  src/Unsafe/*.hs
 
 source-repository head
   type: git
