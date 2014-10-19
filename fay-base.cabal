@@ -32,27 +32,30 @@ source-repository head
 library
   hs-source-dirs:    src
   exposed:           False
-  exposed-modules:   Prelude
-                    ,Control.Exception
-                    ,Data.Char
-                    ,Data.Data
-                    ,Data.Defined
-                    ,Data.Either
-                    ,Data.Function
-                    ,Data.List
-                    ,Data.LocalStorage
-                    ,Data.Maybe
-                    ,Data.MutMap
-                    ,Data.MutMap.Internal
-                    ,Data.Mutex
-                    ,Data.Nullable
-                    ,Data.Ord
-                    ,Data.Ratio
-                    ,Data.Text
-                    ,Data.Time
-                    ,Data.Var
-                    ,Debug.Trace
-                    ,FFI
-                    ,Fay.Unsafe
-                    ,Unsafe.Coerce
-  build-depends: base == 4.*, fay >= 0.19.1 && < 0.22
+  exposed-modules:
+    Control.Exception
+    Data.Char
+    Data.Data
+    Data.Defined
+    Data.Either
+    Data.Function
+    Data.List
+    Data.LocalStorage
+    Data.Maybe
+    Data.MutMap
+    Data.MutMap.Internal
+    Data.Mutex
+    Data.Nullable
+    Data.Ord
+    Data.Ratio
+    Data.Text
+    Data.Time
+    Data.Var
+    Debug.Trace
+    FFI
+    Fay.Unsafe
+    Prelude
+    Unsafe.Coerce
+  build-depends:
+      base == 4.*
+    , fay >= 0.19.1 && < 0.22
