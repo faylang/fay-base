@@ -1,5 +1,10 @@
 ## Changelog
 
+#### 0.19.4 (2014-10-21)
+
+* Fix type signature of `Data.Text.pack`.
+* Add IsString instance for `Text` for using the ffi with `RebindableSyntax` enabled.
+
 ### 0.19.3 (2014-10-21)
 
 * Lots of additions adding the following modules:
