@@ -1,5 +1,19 @@
 ## Changelog
 
+### 0.19.3 (2014-10-21)
+
+* Lots of additions adding the following modules:
+  * Data.Var - Mutable variables, Reactive variables, and reactive signals
+  * Unsafe.Coerce
+  * Data.Text (fay-text will be updated to reuse this module)
+  * Data.Time
+  * Data.Ord, Data.Function, Data.Maybe, Data.List, Data.Either
+  * Data.Defined and Data.Nullable
+  * Data.Mutex - Simple mutexes
+  * Control.Exception
+  * Data.LocalStorage
+  * Data.MutMap - Mutable maps
+
 #### 0.19.2.1 (2014-10-11)
 
 * Allow `fay 0.21`
