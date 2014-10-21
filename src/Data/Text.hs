@@ -1,8 +1,9 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE EmptyDataDecls #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE EmptyDataDecls #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE NoRebindableSyntax #-}
+{-# LANGUAGE PackageImports #-}
+{-# LANGUAGE StandaloneDeriving #-}
 
 -- | Compatible API with the `text' package.
 
@@ -56,19 +57,20 @@ module Data.Text
   -- * Breaking into lines and words
   , unlines
   , lines
-  ,
   ) where
 
 import Data.Data
 import FFI
 import Data.Nullable (fromNullable)
-import Prelude (Eq,String,Int,Bool,Char,Maybe,Double)
+import Prelude (Eq,String,Int,Bool,Char,Maybe,Double,error)
+import qualified "base" Data.String as B (IsString (..))
 
 -- | A space efficient, packed, unboxed Unicode text type.
 data Text
 deriving instance Eq Text
 deriving instance Data Text
 deriving instance Typeable Text
+instance B.IsString Text where fromString = error "the method fromString can never be called"
 
 -- | O(n) The intercalate function takes a Text and a list of Texts and
 -- concatenates the list after interspersing the first argument
@@ -95,7 +97,7 @@ cons = ffi "%1 + %2"
 
 -- | O(n) Convert a String into a Text. Subject to fusion. Performs
 -- replacement on invalid scalar values.
-pack :: Text -> String
+pack :: String -> Text
 pack = ffi "%1"
 
 -- | O(n) Convert a Text into a String. Subject to fusion.
